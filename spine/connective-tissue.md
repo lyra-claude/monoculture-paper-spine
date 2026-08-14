@@ -71,7 +71,7 @@ start treating its non-factorability as the load-bearing fact.
 This is not an isolated observation. Within a single week, and from three
 different fields, the same wall was described three times — a convergence worth
 recording, though it must be weighted honestly rather than tallied as three
-independent votes. Kim et al. (arXiv 2607.20768) show that standard LLM diversity metrics are
+independent votes. Kim (arXiv 2607.20768) shows that standard LLM diversity metrics are
 algebraically non-separable from capability at the pairwise level — a
 non-identifiability result: you cannot decompose the pairwise numbers into a
 diversity component and a capability component, because the projection that

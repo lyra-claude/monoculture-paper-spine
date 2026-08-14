@@ -3,9 +3,18 @@ status: DRAFT — Lyra, 2026-07-26, staging for three-leg joint paper
 section: The $\Omega_{\mathrm{blind}}$ subsection (Leg 3 — operational e-value SLA)
 ---
 
-> **Supermartingale (additive):** running sum S_t=Σ X_s; under H₀ its expected increment ≤0, but it is not itself an anytime-valid test.
-> **E-process (test supermartingale):** the multiplicative wealth process E_{ij,t}=∏(1+λX_s), init 1, nonneg; the anytime-valid object Ville's inequality applies to at any stopping time.
-> **E-value:** the value of an e-process at a fixed/stopping time; an average of e-values is an e-value, an average of e-processes is an e-process.
+> **Terminology is pinned in the Leg-3 body (`leg3-eprocess.md`) and reproduced here so the
+> two sections agree.** Let X_s be the per-step betting increment (in Leg 3, X_s = U_s − V_s).
+> **Martingale / supermartingale:** the multiplicative wealth process M_t = ∏_{s≤t}(1+λX_s),
+> started at M_0 = 1 and nonnegative, satisfies E[1+λX_s | F_{s-1}] = 1 under the *exact* null
+> (a *test martingale*), demoted to E[1+λX_s | F_{s-1}] ≤ 1 (a *test supermartingale*) once the
+> δ_k drift-slack of the Leg-3 body §5 is subtracted under approximate stratification; this
+> multiplicative process (not the additive running sum) is the object Ville's inequality applies to.
+> **E-process:** the process {M_t} — equivalently its Robbins mixture over λ — is an e-process;
+> an average of e-processes is an e-process.
+> **E-value:** the value M_τ at a fixed/stopping time τ, with E[M_τ] ≤ 1 by optional stopping;
+> an average of e-values is an e-value.
+> **Ville's inequality:** P(sup_t M_t ≥ 1/α) ≤ α under H₀ — the anytime-valid level-α SLA.
 
 # The blind spot: $\Omega_{\mathrm{blind}}$
 
@@ -111,27 +120,35 @@ estimand is the *temporal drift of a single judge* against a human anchor. Ours
 is a different estimand: a *per-pair* e-process monitoring correlated
 *co-failure across a pair of judges*, with pairs optionally up-weighted by a
 **qualitative** $H^1$-informed prior (a prior on *where to bet* — it affects
-power, not validity, and enters no bound; §[Leg 3]). No quantitative
+power, not validity, and enters no bound; see the Leg-3 body,
+`leg3-eprocess.md` §4). No quantitative
 $H^1$-weighting of the e-process is claimed. The honest sentence is therefore:
 e-processes for judge-monitoring exist (Li, 2026); our contribution is the
 co-failure / per-pair application of that anytime-valid machinery, together with
 a **qualitative** $H^1$-informed *weighting prior* linking the failure-axis
 statistic to the Leg-2 obstruction class — the prior steers power, it enters no
-bound, and no quantitative $H^1$-weighting is defined (§[Leg 3]). We claim the
+bound, and no quantitative $H^1$-weighting is defined (see the Leg-3 body,
+`leg3-eprocess.md` §4). We claim the
 estimand and its **qualitative** cohomological framing; we do not claim the
 anytime-valid apparatus underneath it, nor any quantitative cohomological bound.
 
-⟦GAP: the $H^1$-informed weighting prior is now scoped as **qualitative** (steers
-power / where to bet; enters no bound; no quantitative object defined). The
-§[Leg 3] forward-reference still needs a concrete section pointer once Leg 3 is
-drafted. Confirm in Leg 3 that no quantitative $H^1$-weighting formula appears;
-if one does, that would re-open this scope question.⟧
+⟦RESOLVED 2026-08-02: the $H^1$-informed weighting prior is scoped as
+**qualitative** (steers power / where to bet; enters no bound; no quantitative
+object defined). The §[Leg 3] forward-reference now resolves to the Leg-3 body
+`leg3-eprocess.md` §4, which confirms *in text* that no quantitative
+$H^1$-weighting formula appears and that introducing one would re-open this scope
+question. Scope is consistent across the two sections.⟧
 
-⟦GAP: "supermartingale" vs "e-process / e-value" — I have used all three. Confirm
-the intended object (test supermartingale? e-process? plain e-value at a stopping
-time?) matches the Leg-3 body's definition and unify the terminology before
- this ships. The Han side is stated purely in log-odds $\ell_k$; the streaming
-side needs its object pinned.⟧
+⟦RESOLVED 2026-08-02: "supermartingale" vs "e-process / e-value" is now pinned in
+the Leg-3 body (`leg3-eprocess.md`, terminology header) and reproduced in this
+subsection's header above. The intended object is: the per-step bet builds a
+**nonnegative test supermartingale** (E[e_s | F_{s-1}] ≤ 1, e_0 = 1); the running
+product $\{M_t\}$ / its Robbins mixture is an **e-process**; Ville's inequality
+gives the anytime-valid level-$\alpha$ SLA; an **e-value** is $M_\tau$ at a
+stopping time with E[M_τ] ≤ 1. The streaming object is thus pinned; the Han side
+remains stated in log-odds $\ell_k$ (batch), and the serial-to-parallel transfer
+between the two is the open gate flagged in the scope note, NOT a terminology
+mismatch.⟧
 
 ⟦GAP: verify from primary that Li "Who Drifted?" is arXiv 2606.15474 and that its
 estimand is single-judge temporal drift against a human anchor (not already a
